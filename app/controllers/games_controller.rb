@@ -14,11 +14,11 @@ class GamesController < ApplicationController
     game = JSON.parse(serialised_game)
 
     if game['found'] && included?(@word.upcase, @letters)
-      @score = "#{@word} is a correct word, well done!"
+      @score = "#{@word.upcase} is a correct word, well done!"
     elsif game['found']
-      @score = "#{@word} is not in the grid..."
+      @score = "#{@word.upcase} is not in the grid..."
     else
-      @score = "#{@word} is not a correct english word..."
+      @score = "#{@word.upcase} is not a correct english word..."
     end
   end
 
